@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery Grid</title>
+
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: black;
+			color: white;
+			font-family: 'Poppins', 'Sans-serif';
+		}
+
+		h1{
+			margin: 20px;
+		}
+
+		h4{
+			margin: 20px 20px 2px 20px;
+		}
+
+		.GridBox{
+			padding: 5px;
+		/*	height: 300px; */
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+			/* grid-template-rows: auto;  */
+			/* Add some grid box container property to test first */
+			/*background-color: pink;*/
+			justify-items: center;
+			align-items: center;
+		  gap: 5px;
+
+			
+		}
+
+		.i1{
+		/*	width: 30px;
+			height: 30px; */
+			background-color: hwb(41 0% 7%);
+		}
+
+		.GridBox img{
+			width: 100%;
+			aspect-ratio: 1 / 1;
+			height: 100%;
+			object-fit: cover;
+			border: 1px solid hwb(0 40% 60% / 0.5058823529411764);
+			border-radius: 3px;
+		}
+
+		.lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+      padding: 20px;
+		}
+
+		.lightbox.active {
+      opacity: 1;
+      pointer-events: auto;
+		}
+
+		.lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      transform: scale(0.9);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		}
+
+		.lightbox.active img {
+      transform: scale(1);
+		}
+
+		.lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      color: #fff;
+      font-size: 35px;
+      line-height: 1;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.2s ease;
+    }
+
+    .lightbox-close:hover {
+      color: #ff5252;
+		}
+	
+	</style>
+</head>
+	
+<body>
+	<h1>Gallery</h1>
+
+	<h4>The Mountains</h4>
+
+	<div class="GridBox">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZYiVLTsWd-CV6jDIT4e6Oll-5HiUEJcuLIbS67tcDyA&s=10">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXl_JNXC35hWOc4psQN9s0O17AtPA8Nc7TT5jnrY4Vdg&s=10">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZWLUE4353Gp03r12Na5sjuw2mRGaBOgu6erSlS2QAKQ&s">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWW1X4n3NI-8gblMNhlT_sU1UnxK32bBoxT1_BPYYJRmoFpALB8bvSWDPS&s=10">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgr5K35Hqo7ojrMg8ROAVkmdv_6ZJnyVnHf9ghva2shmyMtXjCQR_yMWc&s=10">
+
+		<img src="https://media.istockphoto.com/id/481109476/photo/beautiful-landscape-of-himalayas-mountains.jpg?s=612x612&w=0&k=20&c=rxvXymB5ehIQwg5tkSGvdvuOijQTHRN3C5j0M2x6PX8=">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwL1y1Ko2UnoQ5bOPWETG9hfnu68OZ9uC9AlImUIRVsj1BVIGM5aALrwH0&s=10">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNcTxWyFPFcOYagsLZqhHylV-y6vMzV6h7AUJzsKtFnmyQbd1qYGCUkABt&s=10">	
+		
+	</div>
+
+	<h4>The Oceans</h4>
+
+	<div class="GridBox">
+
+		<img src="https://images.nationalgeographic.org/image/upload/v1652341068/EducationHub/photos/ocean-waves.jpg">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCynWEi7HdC6NvTbddFpbrSg6VFVX_rlRBrtbm_xrlUNmTYKU-1EHf2HU&s=10">
+
+		<img src="https://oceanexplorer.noaa.gov/wp-content/uploads/2013/10/explored-hires-scaled.jpg">
+
+		<img src="https://www.aopa.org/-/media/Images/AOPA-Main/Pilot-Gear-Blog/2023/July/Ocean.jpg?mw=880&mh=495&as=1&hash=DC119CF4DDB14CA05E72AD4FD9F5D48F">
+
+		<img src="https://static.ocean.org/oceanorg/2021/11/pexels-sebastian-voortman-189349-1024x683.jpg">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK6pM_guDy8l6yAe2O-3CG0NMBwJncSrBj-ZzrPz49rw&s=10">	
+		
+	</div>
+
+	<h4>The Clouds</h4>
+
+	<div class="GridBox">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7oXkFoycetT7BgSOBA1CCaRI9bwv7AAjz0MOwBm5PWg&s=10">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzm7MfNAJLv3ZtGrSF1DWnqwKLX9Qn_SjjLWewQfZnXuQcl21RQxj_OD4h&s=10">
+
+		<img src="https://cdn.hswstatic.com/gif/gettyimages-500942462-hero.jpg">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQltmAKhOlXWecuRWC2WEJ3spnO152HqOwR0fPYXwqpN6-PUj6QIxHftDI&s=10">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStZbsCTOM7-02g37y4numLRyN_wLXPJ1Apm36imGrGBkjqxb81nTWeT8Gu&s=10g">
+
+		<img src="https://media.istockphoto.com/id/1494319207/photo/clouds-on-the-sky-sunset-weather.jpg?s=612x612&w=0&k=20&c=cxsby3Dve0TmDU1jzmED5R7J2zOADRQYADc-TcM9SrM=">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYVXbI-AiexCmld-IDRLva8IM_6mJiwDLr6W8SCqgqgKl67anbCyus4p5D&s=10">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAoajsJeJPJUpS86hoC5dNtKgipzaGmvGAY92FCHtX1-qnud1pkdu6lHSm&s=10">	
+		
+	</div>
+
+
+	<h4>Anime OGs</h4>
+
+	<div class="GridBox">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn_N6Jrg67aqJ6VPgaWw1wcY6S7xEqDh-cyhlZC6d2ig&s=10">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThub5Xmv2YfP6VcHpV0Rzyk9fYIzSS23s4tvtzQr1HIS5dzSA_ivq5zXpx&s=10">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSopNSPbTpCXCo9_UC-TuEWpW_RWm6Lv8jeqHY7IFgmDw&s=10">
+
+		<img src="https://i.pinimg.com/736x/42/77/44/427744470963e2ac2bff1110bd81d821.jpg">
+
+		<img src="https://i.pinimg.com/736x/9c/db/26/9cdb264b537b9f247de1155793dbb35f.jpg">
+
+		<img src="https://i.pinimg.com/736x/82/5a/95/825a9537559cf9c71b19ad5e4fc77972.jpg">
+
+		<img src="https://images.alphacoders.com/125/thumb-1920-1251053.jpg">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZbNnKVzt7BtNuUp0C9LostgcLfb9wajghYhDwNnGWnHlMpGWQisSPfigr&s=10">		
+		
+	</div>
+
+	<h4>From Manhwa</h4>
+
+	<div class="GridBox">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp0vPFK1VwJjKhYtBeNAnsrmyJNSrL0XLfLUuwso1h_575HgYOvridgQk&s=10">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvoV7JNvwPl3mQvCpQSv3_QBw7W6uMQqAxt_CrUauWqqVDYvTrO8IC48A&s=10g">
+
+		<img src="https://i.pinimg.com/736x/61/a5/d0/61a5d0a0b796278d6ca550979a53ebd5.jpg">
+
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX4x47xLfP4uAyJG90_-pKiiuF-9bmlcRE00CDwIrjmdQ-evFKHgSDXvA&s=10">
+
+		<img src="https://w0.peakpx.com/wallpaper/600/157/HD-wallpaper-solo-leveling-op-manga-anime-fight-level-3.jpg">
+		
+	</div>
+
+	<div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <img src="" alt="Fullscreen preview" id="lightboxImg">
+	</div>
+
+	<script>
+
+		const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.GridBox img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeGallery() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+      lightboxImg.src = '';
+    }
+
+    lightboxClose.addEventListener('click', closeGallery);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeGallery();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeGallery();
+      }
+    });		
+
+	</script>
+		
+	
+	
+	
+
+</body>
+</html>
